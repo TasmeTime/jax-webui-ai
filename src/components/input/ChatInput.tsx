@@ -5,6 +5,8 @@ import Row from "../Row";
 import SendBtn from "./SendBtn";
 import Spinner from "../Spinner";
 import Dots from "../Dots";
+import { motion } from "framer-motion";
+import { fadeInFromTop } from "../../animations/common.animation";
 
 const ChatInputEl = styled(Row)<{ hasmessage: string }>`
   position: sticky;
@@ -19,7 +21,8 @@ const ChatInputEl = styled(Row)<{ hasmessage: string }>`
   padding-bottom: ${(p) => (p.hasmessage === "true" ? "100px" : "300px")};
 `;
 
-const HolderEl = styled(Row)`
+const HolderEl = styled(motion.div)`
+  display: flex;
   align-items: center;
   background-color: ${Colors.White};
   width: 70%;
@@ -88,7 +91,11 @@ export default function ChatInput({
         }
       }}
     >
-      <HolderEl>
+      <HolderEl
+        {...fadeInFromTop({
+          transition: { duration: 0.5, delay: .7 },
+        })}
+      >
         <ContentEditable
           innerRef={inputRef}
           disabled={isLoading || isSending}

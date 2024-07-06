@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Row from "../Row";
 import { Colors } from "../../statics/Colors";
 import Prompts from "../../statics/Prompts";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInFromBottom, fadeInFromTop } from "../../animations/common.animation";
 
 const GetStartedEl = styled(Row)<{ active?: string }>`
   align-items: center;
@@ -13,13 +15,13 @@ const GetStartedEl = styled(Row)<{ active?: string }>`
   display: ${(p) => (p.active === "true" ? "" : "none")};
   gap: 30px;
 `;
-const TitleEl = styled.h1`
+const TitleEl = styled(motion.h1)`
   font-size: 5rem;
   margin: 0;
   padding: 0;
   color: ${Colors.Pry100};
 `;
-const SubTitleEl = styled.h3`
+const SubTitleEl = styled(motion.h3)`
   color: ${Colors.Sec100};
   font-weight: 400;
 `;
@@ -29,7 +31,8 @@ const HolderEl = styled(Row)`
   /* background-color: red; */
   gap: 18px;
 `;
-const SugEl = styled(Row)`
+const SugEl = styled(motion.div)`
+  display: flex;
   flex-direction: column;
   padding: 20px;
   border-radius: 20px;
@@ -70,13 +73,31 @@ export default function GetStarted({
   return (
     <GetStartedEl active={active ? "true" : "false"}>
       <Row fd="column">
-        <TitleEl>JAX</TitleEl>
-        <SubTitleEl>ask me about stuff or give me a task</SubTitleEl>
+        <TitleEl
+          {...fadeInFromTop({
+            transition: { duration: 0.5 },
+            viewportOnce: false,
+          })}
+        >
+          JAX
+        </TitleEl>
+        <SubTitleEl
+          {...fadeInFromTop({
+            transition: { duration: 0.5, delay: 0.2 },
+            viewportOnce: false,
+          })}
+        >
+          ask me about stuff or give me a task
+        </SubTitleEl>
       </Row>
       <HolderEl>
-        {Prompts.map((p) => {
+        {Prompts.map((p, i) => {
           return (
             <SugEl
+              {...fadeInFromTop({
+                transition: { duration: 0.3, delay: (i + 1) / 8 },
+                viewportOnce: false,
+              })}
               key={p.id}
               onClick={() => {
                 setPrompt(p.prompt);
