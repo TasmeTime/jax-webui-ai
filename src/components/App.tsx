@@ -59,6 +59,7 @@ function App() {
   const [resStream, setResStream] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
+  const inputRef = useRef<HTMLDivElement | null>(null);
   const canSend =
     !isLoading &&
     !isSending &&
@@ -77,7 +78,7 @@ function App() {
   };
   function unescapeHtml(value: string) {
     var div = document.createElement("div");
-    div.innerHTML = value.replaceAll("<br>","\n");
+    div.innerHTML = value.replaceAll("<br>", "\n");
     return div.textContent;
   }
   const sendPrompt = async () => {
@@ -129,10 +130,17 @@ function App() {
       setIsLoading(false);
     }
   };
+  const focusPrompt = () => {
+    if (inputRef.current) inputRef.current.focus();
+  };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 1000000 });
+    if (resStream.length > 0) {
+      if (typeof window !== "undefined") {
+        window.scrollTo({ top: 1000000 });
+      }
+    } else {
+      focusPrompt();
     }
   }, [resStream]);
 
@@ -150,6 +158,7 @@ function App() {
           resStream={resStream}
         />
         <ChatInput
+          inputRef={inputRef}
           isSending={isSending}
           isLoading={isLoading}
           prompt={prompt}

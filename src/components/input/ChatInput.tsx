@@ -47,6 +47,7 @@ const HolderEl = styled(Row)`
 `;
 
 const CharacterCounterEl = styled(Row)`
+  margin: 0 auto;
   font-weight: 400;
   font-size: 0.8rem;
   color: ${Colors.Pry20};
@@ -65,7 +66,9 @@ export default function ChatInput({
   maxContextSize,
   isSending,
   isLoading,
+  inputRef,
 }: {
+  inputRef: React.MutableRefObject<HTMLDivElement | null>;
   prompt: string;
   sendPrompt: () => Promise<void>;
   canSend: boolean;
@@ -83,16 +86,9 @@ export default function ChatInput({
         }
       }}
     >
-      {prompt.length > 0 ? (
-        <CharacterCounterEl>
-          <span> {prompt.length}</span>/<span>{maxContextSize}</span>
-        </CharacterCounterEl>
-      ) : (
-        ""
-      )}
-
       <HolderEl>
         <ContentEditable
+          innerRef={inputRef}
           disabled={isLoading || isSending}
           id="CHAT_INPUT"
           html={prompt}
@@ -109,6 +105,13 @@ export default function ChatInput({
           <SendBtn sendPrompt={sendPrompt} canSend={canSend} />
         )}
       </HolderEl>
+      {prompt.length > 0 ? (
+        <CharacterCounterEl>
+          <span> {prompt.length}</span>/<span>{maxContextSize}</span>
+        </CharacterCounterEl>
+      ) : (
+        ""
+      )}
     </ChatInputEl>
   );
 }
