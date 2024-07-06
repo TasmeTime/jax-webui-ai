@@ -6,6 +6,8 @@ The Jax WebUi project aims to create a simple web-based interface for connecting
 
 I hope that this project can provide a useful starting point for exploring the capabilities of Ollama's AI technology. If you have any feedback or suggestions, please don't hesitate to reach out!
 
+![Jax WebUi AI Homepage](https://i.ibb.co/2sVPLKh/jax-webui-ai-assistant-1.png)
+
 ### Installation of Ollama (Skip of if you have ollama installed already)
 
 Before using Jax WebUi, make sure you have Ollama installed on your local machine. You can download the latest version from [Ollama's official website](https://ollama.com).
