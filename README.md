@@ -57,6 +57,7 @@ Now you can access Jax WebUi by visiting http://localhost:3000 on your computer.
 
 ## **To Do**
 
+- [ ] Add Darkmod
 - [ ] Create a YouTube video showcasing Jax WebUi's features and how to write it from scratch! (I'll really do that! Check my YouTube channel https://yotube.com/tasmetime)
 - [ ] Add a copy button for AI responses
 - [ ] Make the chats support Markdown formatting
