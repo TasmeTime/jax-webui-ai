@@ -6,7 +6,7 @@ import SendBtn from "./SendBtn";
 import Spinner from "../Spinner";
 import Dots from "../Dots";
 
-const ChatInputEl = styled(Row)`
+const ChatInputEl = styled(Row)<{ hasmessage: string }>`
   position: sticky;
   bottom: 0;
   z-index: 2;
@@ -15,9 +15,8 @@ const ChatInputEl = styled(Row)`
   margin-top: auto;
   min-height: fit-content;
   height: fit-content;
-
-  /* border: 1px solid; */
-  padding-bottom: 60px;
+  transition: all 0.15s;
+  padding-bottom: ${(p) => (p.hasmessage === "true" ? "100px" : "300px")};
 `;
 
 const HolderEl = styled(Row)`
@@ -67,9 +66,11 @@ export default function ChatInput({
   isSending,
   isLoading,
   inputRef,
+  messageCount,
 }: {
   inputRef: React.MutableRefObject<HTMLDivElement | null>;
   prompt: string;
+  messageCount: number;
   sendPrompt: () => Promise<void>;
   canSend: boolean;
   maxContextSize: number;
@@ -79,6 +80,7 @@ export default function ChatInput({
 }) {
   return (
     <ChatInputEl
+      hasmessage={messageCount > 0 ? "true" : "false"}
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault();

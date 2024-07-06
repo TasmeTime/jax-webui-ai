@@ -158,6 +158,7 @@ function App() {
           resStream={resStream}
         />
         <ChatInput
+          messageCount={messages.length}
           inputRef={inputRef}
           isSending={isSending}
           isLoading={isLoading}
