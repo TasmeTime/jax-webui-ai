@@ -7,7 +7,7 @@ const UserChatBubbleEl = styled(Row)`
   color: ${Colors.White};
   width: fit-content;
   margin-left: auto;
-  white-space: pre;
+  white-space: pre-wrap;
   padding: 10px;
   border-radius: 10px 0 10px 10px;
   text-align: right;
