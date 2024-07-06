@@ -17,13 +17,14 @@ const ChatInputEl = styled(Row)`
   height: fit-content;
 
   /* border: 1px solid; */
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 `;
 
 const HolderEl = styled(Row)`
   align-items: center;
   background-color: ${Colors.White};
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   border-radius: 10px;
   padding-right: 20px;
   outline: 2px solid ${Colors.Border};
