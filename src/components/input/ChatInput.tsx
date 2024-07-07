@@ -18,7 +18,7 @@ const ChatInputEl = styled(Row)<{ hasmessage: string }>`
   min-height: fit-content;
   height: fit-content;
   transition: all 0.15s;
-  padding-bottom: ${(p) => (p.hasmessage === "true" ? "100px" : "300px")};
+  padding-bottom: ${(p) => (p.hasmessage === "true" ? "100px" : "200px")};
 `;
 
 const HolderEl = styled(motion.div)`
@@ -92,6 +92,13 @@ export default function ChatInput({
         }
       }}
     >
+      {prompt.length > 0 ? (
+        <CharacterCounterEl>
+          <span> {prompt.length}</span>/<span>{maxContextSize}</span>
+        </CharacterCounterEl>
+      ) : (
+        ""
+      )}
       <HolderEl
         {...fadeInFromTop({
           transition: { duration: 0.5, delay: 0.7 },
@@ -115,13 +122,6 @@ export default function ChatInput({
           <SendBtn sendPrompt={sendPrompt} canSend={canSend} />
         )}
       </HolderEl>
-      {prompt.length > 0 ? (
-        <CharacterCounterEl>
-          <span> {prompt.length}</span>/<span>{maxContextSize}</span>
-        </CharacterCounterEl>
-      ) : (
-        ""
-      )}
     </ChatInputEl>
   );
 }
