@@ -11,6 +11,7 @@ import { Colors } from "../statics/Colors";
 
 const AppEl = styled(Row)`
   width: 100svw;
+  background-color: ${Colors.Background};
   height: 100svh;
   max-width: 100svw;
   max-height: 100svh;

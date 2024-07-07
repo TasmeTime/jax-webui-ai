@@ -24,7 +24,7 @@ const ChatInputEl = styled(Row)<{ hasmessage: string }>`
 const HolderEl = styled(motion.div)`
   display: flex;
   align-items: center;
-  background-color: ${Colors.White};
+  background-color: ${Colors.Background};
   width: 70%;
   margin: 0 auto;
   border-radius: 10px;
