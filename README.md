@@ -34,7 +34,7 @@ cd jax-webui-ai
 2. Run the following command to install the dependencies:
 
 ```bash
-npm run i
+npm i
 ```
 
 ### Run the project
