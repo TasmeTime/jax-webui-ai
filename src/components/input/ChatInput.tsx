@@ -28,11 +28,12 @@ const HolderEl = styled(motion.div)`
   width: 70%;
   margin: 0 auto;
   border-radius: 10px;
+
   padding-right: 20px;
   outline: 2px solid ${Colors.Border};
-  color: ${Colors.Pry20};
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: ${Colors.Pry20};
   &:focus {
     box-shadow: rgb(223, 246, 255) 0px 2px 8px 0px;
   }
@@ -40,12 +41,17 @@ const HolderEl = styled(motion.div)`
   overflow: visible auto;
   & > #CHAT_INPUT {
     all: unset;
+    color: ${Colors.Pry20};
     min-height: 30px;
     width: 100%;
     font-size: 1.2rem;
     padding: 13px 20px;
     max-height: 300px;
     position: relative;
+
+    & > span {
+      white-space: pre-wrap !important;
+    }
   }
 `;
 

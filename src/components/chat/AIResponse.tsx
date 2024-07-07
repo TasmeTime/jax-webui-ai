@@ -1,13 +1,24 @@
 import styled from "styled-components";
 import Row from "../Row";
+import { IoCopyOutline } from "react-icons/io5";
 import { Colors } from "../../statics/Colors";
+//@ts-ignore
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const AIResponseEl = styled(Row)`
-  gap: 10px;
+  gap: 20px;
   width: fit-content;
+  flex-direction: column;
 `;
 
-const AvatarEl = styled(Row)``;
+const ActionBarEl = styled(Row)`
+  font-size: 1.25rem;
+  svg {
+    cursor: pointer;
+    color: ${Colors.Black};
+  }
+`;
+
 const ContentEl = styled.div`
   white-space: pre-wrap;
   width: fit-content;
@@ -17,8 +28,13 @@ const ContentEl = styled.div`
 export default function AIResponse({ content }: { content: string }) {
   return (
     <AIResponseEl>
-      <AvatarEl />
       <ContentEl>{content}</ContentEl>
+
+      <ActionBarEl>
+        <CopyToClipboard text={content}>
+          <IoCopyOutline />
+        </CopyToClipboard>
+      </ActionBarEl>
     </AIResponseEl>
   );
 }
