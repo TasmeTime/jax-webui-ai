@@ -3,7 +3,11 @@ import Row from "../Row";
 import { Colors } from "../../statics/Colors";
 import Prompts from "../../statics/Prompts";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInFromBottom, fadeInFromTop } from "../../animations/common.animation";
+import {
+  fadeIn,
+  fadeInFromBottom,
+  fadeInFromTop,
+} from "../../animations/common.animation";
 
 const GetStartedEl = styled(Row)<{ active?: string }>`
   align-items: center;
@@ -48,10 +52,12 @@ const SugEl = styled(motion.div)`
 
   & > div {
     &:first-child {
+      color: ${Colors.Pry20};
       font-size: 0.8rem;
       font-weight: bold;
     }
     &:last-child {
+      color: ${Colors.Pry80};
       font-size: 0.8rem;
     }
   }
@@ -60,6 +66,15 @@ const SugEl = styled(motion.div)`
     transform: translateY(-8px);
     background-color: ${Colors.Pry20};
     box-shadow: rgb(223, 246, 255) 0px 2px 8px 0px;
+
+    & > div {
+      &:first-child {
+        color: ${Colors.Sec100};
+      }
+      &:last-child {
+        color: ${Colors.Pry100};
+      }
+    }
   }
 `;
 

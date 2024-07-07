@@ -30,6 +30,7 @@ const HolderEl = styled(motion.div)`
   border-radius: 10px;
   padding-right: 20px;
   outline: 2px solid ${Colors.Border};
+  color: ${Colors.Pry20};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   &:focus {
@@ -93,7 +94,7 @@ export default function ChatInput({
     >
       <HolderEl
         {...fadeInFromTop({
-          transition: { duration: 0.5, delay: .7 },
+          transition: { duration: 0.5, delay: 0.7 },
         })}
       >
         <ContentEditable
