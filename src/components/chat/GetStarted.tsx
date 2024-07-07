@@ -72,7 +72,7 @@ const SugEl = styled(motion.div)`
         color: ${Colors.Sec100};
       }
       &:last-child {
-        color: ${Colors.Pry100};
+        color: ${Colors.Background};
       }
     }
   }

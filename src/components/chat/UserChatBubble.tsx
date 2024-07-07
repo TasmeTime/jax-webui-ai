@@ -4,7 +4,7 @@ import { Colors } from "../../statics/Colors";
 
 const UserChatBubbleEl = styled(Row)`
   background-color: ${Colors.Pry100};
-  color: ${Colors.Background};
+  color: ${Colors.Pry80};
   width: fit-content;
   margin-left: auto;
   white-space: pre-wrap;

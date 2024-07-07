@@ -13,7 +13,7 @@ export const Colors = {
   Background: "#333", // Dark gray background
   Black: "#fff", // White text for black color
   Border: "#666", // Medium gray border
-  Pry100: "#999", // Dark gray primary color
+  Pry100: "#1363DF", // Dark gray primary color
   Pry80: "#ccc", // Lighter gray secondary color
   Pry20: "#eee", // Very light gray tertiary color
   Sec100: "#777" // Gray for secondary text

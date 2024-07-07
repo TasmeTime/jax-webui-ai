@@ -11,7 +11,7 @@ const AvatarEl = styled(Row)``;
 const ContentEl = styled.div`
   white-space: pre-wrap;
   width: fit-content;
-  color: ${Colors.Sec100};
+  color: ${Colors.Pry80};
 `;
 
 export default function AIResponse({ content }: { content: string }) {
