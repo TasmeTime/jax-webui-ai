@@ -12,9 +12,11 @@ const ChatHolderEl = styled(Row)`
 
 const MessageHolderEl = styled(Row)<{ active?: string }>`
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 69px;
   /* border: 1px solid; */
   width: 100%;
+  max-width: 80svw;
+  margin: 0 auto;
   gap: 40px;
   height: fit-content;
   min-height: fit-content;
