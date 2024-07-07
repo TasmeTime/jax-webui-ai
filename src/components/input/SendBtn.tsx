@@ -13,8 +13,11 @@ const SendBtnEl = styled.button<{ isactive?: string }>`
   color: ${(p) => (p.isactive === "true" ? Colors.Pry100 : Colors.Sec100)};
   cursor: ${(p) => (p.isactive === "true" ? "pointer" : "default")};
   opacity: ${(p) => (p.isactive === "true" ? "1" : ".5")};
-  box-shadow: ${(p) => (p.isactive === "true" ? `${Colors.Pry100} 0px 0px 8px
-    0px` : "")} ;
+  box-shadow: ${(p) =>
+    p.isactive === "true"
+      ? `${Colors.Pry100} 0px 0px 8px
+    0px`
+      : ""};
   border-radius: 50%;
 
   &:hover {

@@ -14,7 +14,7 @@ const AppEl = styled(Row)`
   background-color: ${Colors.Background};
   height: 100svh;
   max-width: 100svw;
-  max-height: 100svh;
+  height: 100%;
   flex-direction: column;
 `;
 
