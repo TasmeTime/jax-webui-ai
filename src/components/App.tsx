@@ -98,6 +98,7 @@ function App() {
       } as IMessage;
       setMessages((prev) => [...prev, userPrompt]);
 
+      setPrompt("");
       const responseStream = await ollama.chat({
         stream: true,
         model: AI_MODELS.LLAMA3,
@@ -109,8 +110,6 @@ function App() {
         ),
       });
       setIsSending(false);
-
-      setPrompt("");
 
       let tmpRes = "";
       let msgId;
