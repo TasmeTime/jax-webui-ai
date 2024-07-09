@@ -6,24 +6,38 @@ import {
 } from "../../types/common";
 
 export interface ISettingsSlice {
-  ollamaOptions: IOllamaOptions;
-  model: AI_MODELS;
+  ollamaOptions: Partial<IOllamaOptions>;
+  model: string;
   stream: boolean;
+  systemPrompt?: string;
+  isOpen: boolean;
+  host: string;
 }
 
 export const initialState = {
   ollamaOptions: initOllamaOptions,
-  model: AI_MODELS.LLAMA3,
+  model: "llama3",
   stream: true,
+  isOpen: false,
+  host: "http://127.0.0.1:11434",
 } as ISettingsSlice;
 
 export const settingsSliceSlice = createSlice({
   name: "settingsSlice",
   initialState,
   reducers: {
+    openSettings: (state: ISettingsSlice) => {
+      state.isOpen = true;
+    },
+    closeSettings: (state: ISettingsSlice) => {
+      state.isOpen = false;
+    },
+    settingsSetHost: (state: ISettingsSlice, action: PayloadAction<string>) => {
+      state.model = action.payload;
+    },
     settingsSetModel: (
       state: ISettingsSlice,
-      action: PayloadAction<AI_MODELS>
+      action: PayloadAction<string>
     ) => {
       state.model = action.payload;
     },
@@ -32,6 +46,12 @@ export const settingsSliceSlice = createSlice({
       action: PayloadAction<boolean>
     ) => {
       state.stream = action.payload;
+    },
+    settingsSetSystemPrompt: (
+      state: ISettingsSlice,
+      action: PayloadAction<string | undefined>
+    ) => {
+      state.systemPrompt = action.payload;
     },
     settingsSetOllamaOptions: (
       state: ISettingsSlice,
@@ -123,7 +143,13 @@ export const settingsSliceSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { settingsSetModel, settingsSetOllamaOptions, settingsSetStream } =
-  settingsSliceSlice.actions;
+export const {
+  settingsSetModel,
+  settingsSetOllamaOptions,
+  settingsSetStream,
+  openSettings,
+  closeSettings,
+  settingsSetHost,
+} = settingsSliceSlice.actions;
 
 export default settingsSliceSlice.reducer;

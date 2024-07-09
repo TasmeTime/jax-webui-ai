@@ -11,36 +11,12 @@ export enum AI_MODELS {
   PHI3_MINI_4K_INSTRUCT_Q4 = "phi-3-mini-4k-instruct-q4:latest",
 }
 
-export const initOllamaOptions: IOllamaOptions = {
+export const initOllamaOptions: Partial<IOllamaOptions> = {
   num_keep: 5,
-  seed: 42,
-  num_predict: 100,
-  top_k: 20,
-  top_p: 0.9,
-  tfs_z: 0.5,
-  typical_p: 0.7,
-  repeat_last_n: 33,
   temperature: 0.8,
-  repeat_penalty: 1.2,
-  presence_penalty: 1.5,
-  frequency_penalty: 1.0,
-  mirostat: 1,
-  mirostat_tau: 0.8,
-  mirostat_eta: 0.6,
-  penalize_newline: true,
-  stop: ["\n", "user:"],
-  numa: false,
   num_ctx: 1024 * 2,
-  num_batch: 2,
-  num_gpu: 1,
-  main_gpu: 0,
-  low_vram: false,
-  f16_kv: true,
-  vocab_only: false,
-  use_mmap: true,
-  use_mlock: false,
-  num_thread: 8,
 };
+
 export interface IOllamaOptions {
   num_keep: number;
   seed: number;
