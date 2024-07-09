@@ -17,7 +17,6 @@ const AppEl = styled(Row)`
   height: 100%;
   flex-direction: column;
 `;
-
 const ContentEl = styled(Row)`
   width: 100%;
   max-width: 880px;
@@ -27,7 +26,6 @@ const ContentEl = styled(Row)`
   height: fit-content;
   gap: 30px;
 `;
-
 const NewChatBtn = styled.button`
   all: unset;
   display: flex;
@@ -49,6 +47,29 @@ const NewChatBtn = styled.button`
   color: ${Colors.Pry20};
   &:hover {
     transform: translate(-50%, 0) scale(1.05);
+    /* top: 10px; */
+  }
+`;
+const SettingsBtn = styled.button`
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  left: 45%;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+  position: fixed;
+  top: 0;
+  transform: translate(-45%, -80%) scale(1.05);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100px;
+  height: 20px;
+  transition: all 0.15s;
+  background-color: ${Colors.Pry80};
+  color: ${Colors.Sec100};
+  &:hover {
+    transform: translate(-45%, 0) scale(1.05);
     /* top: 10px; */
   }
 `;
@@ -152,6 +173,7 @@ function App() {
         ) : (
           ""
         )}
+        <SettingsBtn>Settings</SettingsBtn>
         <ChatHolder
           setPrompt={setPrompt}
           messages={messages}
