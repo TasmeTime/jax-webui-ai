@@ -8,6 +8,8 @@ import { v4 as uuidv4 } from "uuid";
 // @ts-ignore
 import { Ollama } from "ollama/browser";
 import { Colors } from "../statics/Colors";
+import { useSelector } from "react-redux";
+import { RootState } from "../state/mainStore";
 
 const AppEl = styled(Row)`
   width: 100svw;
