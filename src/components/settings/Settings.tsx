@@ -90,7 +90,9 @@ export default function Settings() {
         <input type="number" min={1} value={num_ctx} onChange={numCtxChanged} />
       </Row>
       <Row fd="column" gap="10px" width="fit-content">
-        <LabelEl>System Prompt</LabelEl>
+        <LabelEl>
+          System Prompt ({systemPrompt?.length || 0}/{num_ctx})
+        </LabelEl>
         <textarea value={systemPrompt} onChange={systemPromptChanged} />
       </Row>
       <Row>
