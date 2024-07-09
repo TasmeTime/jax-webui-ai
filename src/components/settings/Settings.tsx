@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Row from "../Row";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { RootState } from "../../state/mainStore";
 import { Colors } from "../../statics/Colors";
+import Row from "../Row";
 //@ts-ignore
 import { ListResponse, ModelResponse, Ollama } from "ollama/browser";
 import { ChangeEvent, useEffect, useState } from "react";
@@ -10,19 +10,21 @@ import {
   closeSettings,
   settingsSetModel,
   settingsSetOllamaOptions,
-  settingsSetStream,
   settingsSetSystemPrompt,
 } from "../../state/slices/settingsSlice";
 import { initOllamaOptions } from "../../types/common";
 import Button from "../Button";
+import SettingsPresets from "./presets/SettingsPresets";
 
 const SettingsEl = styled(Row)<{ isopen: string }>`
   gap: 40px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100svw;
-  height: 100svh;
+  width: calc(100svw - 200px);
+  height: calc(100svh - 200px);
+  max-width: calc(100svw - 200px);
+  max-height: calc(100svh - 200px);
   z-index: 69;
   pointer-events: ${(p) => (p.isopen === "true" ? "all" : "none")};
   opacity: ${(p) => (p.isopen === "true" ? "1" : "0")};
@@ -62,7 +64,6 @@ export default function Settings() {
       })
     );
   };
-
   const systemPromptChanged = (e: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(settingsSetSystemPrompt(e.target.value));
   };
@@ -73,6 +74,7 @@ export default function Settings() {
 
   return (
     <SettingsEl isopen={isOpen ? "true" : ""}>
+      <SettingsPresets />
       <Row fd="column" gap="10px" width="fit-content">
         <LabelEl>Models</LabelEl>
         <select value={model} onChange={modelChanged}>
@@ -94,7 +96,6 @@ export default function Settings() {
       <Row>
         <Button onClick={closeSettingsClicked}>Close</Button>
       </Row>
-
     </SettingsEl>
   );
 }
