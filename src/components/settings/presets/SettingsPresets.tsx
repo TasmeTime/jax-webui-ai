@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 const SettingsPresetsEl = styled(Row)`
   gap: 10px;
   flex-direction: column;
-
+  user-select: none;
   width: 100%;
 `;
 const HolderEl = styled(Row)`
