@@ -150,6 +150,7 @@ export const {
   openSettings,
   closeSettings,
   settingsSetHost,
+  settingsSetSystemPrompt,
 } = settingsSliceSlice.actions;
 
 export default settingsSliceSlice.reducer;

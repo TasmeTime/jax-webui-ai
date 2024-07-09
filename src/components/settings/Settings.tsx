@@ -7,9 +7,11 @@ import { Colors } from "../../statics/Colors";
 import { ListResponse, ModelResponse, Ollama } from "ollama/browser";
 import { ChangeEvent, useEffect, useState } from "react";
 import {
-    closeSettings,
+  closeSettings,
   settingsSetModel,
   settingsSetOllamaOptions,
+  settingsSetStream,
+  settingsSetSystemPrompt,
 } from "../../state/slices/settingsSlice";
 import { initOllamaOptions } from "../../types/common";
 import Button from "../Button";
@@ -61,6 +63,10 @@ export default function Settings() {
     );
   };
 
+  const systemPromptChanged = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch(settingsSetSystemPrompt(e.target.value));
+  };
+
   useEffect(() => {
     fetchAvailableModels();
   }, [ollama]);
@@ -81,9 +87,14 @@ export default function Settings() {
         <LabelEl>num_ctx</LabelEl>
         <input type="number" min={1} value={num_ctx} onChange={numCtxChanged} />
       </Row>
+      <Row fd="column" gap="10px" width="fit-content">
+        <LabelEl>System Prompt</LabelEl>
+        <textarea value={systemPrompt} onChange={systemPromptChanged} />
+      </Row>
       <Row>
         <Button onClick={closeSettingsClicked}>Close</Button>
       </Row>
+
     </SettingsEl>
   );
 }
