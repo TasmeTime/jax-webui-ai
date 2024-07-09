@@ -75,7 +75,7 @@ const SettingsBtn = styled.button`
 `;
 
 function App() {
-  const [maxContextSize, setMaxContextSize] = useState(1024 * 2);
+  const [maxContextSize, setMaxContextSize] = useState(1024 * 4);
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [prompt, setPrompt] = useState<string>("");
   const [resStream, setResStream] = useState<string[]>([]);
