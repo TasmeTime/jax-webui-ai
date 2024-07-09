@@ -30,7 +30,7 @@ export const initOllamaOptions: IOllamaOptions = {
   penalize_newline: true,
   stop: ["\n", "user:"],
   numa: false,
-  num_ctx: 1024,
+  num_ctx: 1024 * 2,
   num_batch: 2,
   num_gpu: 1,
   main_gpu: 0,

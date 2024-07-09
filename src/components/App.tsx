@@ -77,7 +77,11 @@ const SettingsBtn = styled.button`
 `;
 
 function App() {
-  const [maxContextSize, setMaxContextSize] = useState(1024 * 4);
+  const settings = useSelector((state: RootState) => state.settings);
+  const { model, ollamaOptions, stream } = settings;
+  const { num_ctx } = ollamaOptions;
+  const ollama = new Ollama({ host: "http://127.0.0.1:11434" });
+
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [prompt, setPrompt] = useState<string>("");
   const [resStream, setResStream] = useState<string[]>([]);
@@ -89,9 +93,7 @@ function App() {
     !isSending &&
     typeof prompt === "string" &&
     prompt.length > 0 &&
-    prompt.length <= maxContextSize;
-
-  const ollama = new Ollama({ host: "http://127.0.0.1:11434" });
+    prompt.length <= num_ctx;
 
   const newChat = () => {
     setPrompt("");
@@ -190,7 +192,7 @@ function App() {
           sendPrompt={sendPrompt}
           canSend={canSend}
           setPrompt={setPrompt}
-          maxContextSize={maxContextSize}
+          maxContextSize={num_ctx}
         />
       </ContentEl>
     </AppEl>
