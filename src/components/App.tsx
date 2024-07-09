@@ -1,18 +1,17 @@
-import styled from "styled-components";
-import Row from "./Row";
-import ChatInput from "./input/ChatInput";
-import ChatHolder from "./chat/ChatHolder";
 import { useEffect, useRef, useState } from "react";
-import { AI_MODELS, IMessage } from "../types/common";
+import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import { IMessage } from "../types/common";
+import Row from "./Row";
+import ChatHolder from "./chat/ChatHolder";
+import ChatInput from "./input/ChatInput";
 // @ts-ignore
 import { Ollama } from "ollama/browser";
-import { Colors } from "../statics/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../state/mainStore";
-import Settings from "./settings/Settings";
 import { openSettings } from "../state/slices/settingsSlice";
-import TodoList from "./settings/TODO";
+import { Colors } from "../statics/Colors";
+import Settings from "./settings/Settings";
 
 const AppEl = styled(Row)`
   width: 100svw;
